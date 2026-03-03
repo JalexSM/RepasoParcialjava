@@ -8,14 +8,14 @@ public class Main {
     public static void main(String[] args) {
     	 int opcion = 0;
 
-         while (opcion != 5) {
+         while (opcion != 6) {
         	 System.out.println("\n===== MENÚ PRINCIPAL =====");
              System.out.println(" Parte 1 – Ciclos y Operaciones Numéricas.");
              System.out.println(" Parte 2 – Condiciones y Divisibilidad. ");
              System.out.println(" Parte 3 – Uso de switch. ");
              System.out.println(" Parte 4 – Análisis Numérico. ");
              System.out.println(" Parte 5 – Patrones y Transformaciones. ");
-             System.out.println(" SALIR ");
+             System.out.println(" 6. SALIR ");
              System.out.print("Seleccione una opción: ");
              
              try {
@@ -78,13 +78,14 @@ public class Main {
     public static void cicloyOperaciones() {
    	 int opcion = 0;
 
-     while (opcion != 5) {
+     while (opcion != 6) {
     	 System.out.println("\n=====Ciclos y Operaciones Numéricas. =====");
          System.out.println("1. Suma de Divisibles en 4 ");
          System.out.println(" 2. Calculo de un factorial");
          System.out.println(" 3. Conteo de positivos, negativos y cero ");
-         System.out.println("  ");
-         System.out.println(" ");
+         System.out.println(" 4. Promedio de numero pares");
+         System.out.println(" 5. Suma de los digitos de un numero");
+         System.out.println(" 6. SALIR");
          System.out.print("Seleccione una opción: ");
          
          try {
@@ -101,12 +102,13 @@ public class Main {
                 	 	negativosPositivosyCero();
                      break;
                  case 4:
-                 	;
+                	 	promediodePares();
                      break;
                  case 5:
-                 	;
+                	 sumadesusDigitos();
+                	 break;
                  case 6:
-                 ;
+                 System.out.println("Saliendo del programa...");
                  break;
                  default:
                      System.out.println("Opción inválida.");
@@ -170,13 +172,13 @@ public class Main {
     }
     
     public static void negativosPositivosyCero() {
-    	  int n = solicitarCantidad();
-          int[] resultados = contarNumeros(n);
+    	  int numeros = solicitarCantidad();
+          int[] resultados = contarNumeros(numeros);
           mostrarResultados(resultados);
       }
     	
     public static int solicitarCantidad() {
-        return leerEntero("Ingrese la cantidad de números: ");
+        return leerEntero("Ingrese el número: ");
         	
         }
     	
@@ -208,7 +210,65 @@ public class Main {
             System.out.println("Negativos: " + resultados[1]);
             System.out.println("Ceros: " + resultados[2]);
         }
-    	
+
+        
+        public static void promediodePares() {
+        	int numeros = solicitarCantidad();
+        	double promedio = calcularPromedioPares(numeros);
+        	   if (promedio == -1) {
+                   System.out.println("No hay números pares en el rango.");
+               } else {
+                   System.out.println("El promedio de los números pares entre 1 y " + numeros + " es: " + promedio);
+               }
+        }
+        
+        public static double calcularPromedioPares(int numeros) {
+        	int suma = 0 ;
+        	int cantidad = 0;
+        			
+        			 for (int i = 1; i <= numeros; i++) {
+
+        		            if (i % 2 == 0) {   
+        		                suma += i;
+        		                cantidad++;
+        		            }
+        		        }
+
+        		        if (cantidad == 0) {
+        		            return -1; 
+        		        }
+
+        		        return (double) suma / cantidad;
+        }
+        
+       public static void sumadesusDigitos() {
+    	   int n = solicitarCantidad();
+    	   int suma = calcularsumadedigitos(n);
+           System.out.println("La suma de los dígitos es: " + suma);
+       }
+       public static int calcularsumadedigitos(int n) {
+    	   n = Math.abs(n); // Por si el número es negativo
+    	   int suma = 0;
+    	   while (n>0) {
+    		   int digito = n%10;
+    		   suma+=digito;
+    		   n = n / 10; 
+    	   }
+    	   return suma;
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+       }
+        
+        
+        
+        
+        
+        
+        
     }
     		
     	
