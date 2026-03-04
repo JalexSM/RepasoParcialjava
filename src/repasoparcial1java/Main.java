@@ -270,8 +270,8 @@ public class Main {
     	     while (opcion != 4) {
     	    	 System.out.println("\n=====Ciclos y Operaciones Numéricas. =====");
     	         System.out.println("1. Multiplo de 7 o de 11");
-    	         System.out.println(" 2. ");
-    	         System.out.println(" 3. ");
+    	         System.out.println(" 2.Numeros divisbles en 3 pero no en 2 ");
+    	         System.out.println(" 3.Tiempos del dia segun la hora ");
     	         System.out.println(" 4.Salir ");
 
     	         System.out.print("Seleccione una opción: ");
@@ -284,20 +284,14 @@ public class Main {
     	                	 multiplos();
     	                     break;
     	                 case 2:
-    	                	 
+    	                	 divisiblesyNo();
     	                     break;
     	                 case 3:
-    	              
-    	                     break;
-    	                 case 4:
-    	   
-    	                     break;
-    	                 case 5:
-    	      
+    	                	 periodosDia();
     	                	 break;
-    	                 case 6:
-    	                 System.out.println("Saliendo del programa...");
-    	                 break;
+    	                 case 4:
+    	                     System.out.println("Saliendo del programa...");
+        	                 break;
     	                 default:
     	                     System.out.println("Opción inválida.");
     	             }
@@ -309,7 +303,7 @@ public class Main {
     	         }
     	     }
        
-       static public void multiplos() {
+      public static void multiplos() {
     	   
     	   int numero = solicitarCantidad();
     	   String respuesta = evaluarMultiplos(numero);
@@ -328,13 +322,58 @@ public class Main {
     	    }
     	}
     	   
-    	
+       public static void divisiblesyNo() {
+    	   int numero = solicitarCantidad();
+    	   mostrarnumeros(numero);
+       }
        
        
-       
-       
-       
-       
+       public static void  mostrarnumeros(int numero) {
+    	   System.out.println("Números divisibles entre 3 pero no entre 2:");
+    	   for (int i = 1; i <= numero; i++) {
+    		   if ((i % 3) == 0 &&( i % 2 )!= 0) {
+    			   System.out.println(i);
+    		   }
+    	   }
+       }
+    	   
+       public static int leerHora(String mensaje) {
+
+    	   int numero;
+
+    	    while (true) {
+    	        try {
+    	            System.out.print(mensaje);
+    	            numero = Integer.parseInt(sc.nextLine());
+
+    	            if (numero >= 0 && numero <= 23) {
+    	                return numero;
+    	            } else {
+    	                System.out.println("La hora debe estar entre 0 y 23.");
+    	            }
+
+    	        } catch (NumberFormatException e) {
+    	            System.out.println("Entrada inválida. Debe ingresar un número.");
+    	        }
+    	    }
+       }
+
+      public static void periodosDia() {
+    	  int hora = leerHora("ingrese la hora entre las 0-23: ");
+    	  String tiempo = evaluarHora(hora);
+    	  System.out.println(tiempo);
+      }
+      
+       public static String evaluarHora(int hora) {
+    	   if ( hora>=0 && hora <= 11 ) {
+    		   return ("Es de mañana");
+    	   }else if(hora>=12 && hora <= 17) {
+    		   return ("Es de tarde");
+    	   }else {
+    		   return ("Es de noche");
+    	   
+    	   
+       }
        
         
         
@@ -342,5 +381,5 @@ public class Main {
         
     }
     		
-    	
+}
     	
