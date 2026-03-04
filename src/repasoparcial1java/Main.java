@@ -26,7 +26,7 @@ public class Main {
                     	 cicloyOperaciones();
                          break;
                      case 2:
-                     	;
+                    	 condicionesyDivisivilidad();
                          break;
                      case 3:
                     	 ;
@@ -121,29 +121,32 @@ public class Main {
          }
      }
     	
-   
+       public static int solicitarCantidad() {
+        return leerEntero("Ingrese el número: ");
+        	
+        }
     
     public static void sumadeDivisibles() {
-    	 int numero = 0;
-    	 int inter=0;
-    	 int suma = 0;
-    	 System.out.print("Ingrese un número entero : ");
-         numero = sc.nextInt();
+    	int numero = solicitarCantidad();
+    	int suma = calcularSumaDivisibles(numero);
+    	System.out.println("La suma de los números divisibles entre 4 es: " + suma);
+
+
+     }
+    
+    public static int calcularSumaDivisibles(int numero) {
+    	int inter = 0;
+    	int suma = 0;
     	
     	while( inter <= numero) {
     		inter += 1 ;
     		 if  ((inter % 4 )==0) {
-    			 suma = inter + suma;
-    			
-    		 }
-    		
+    			 suma += inter;
+    
+    }
     	 }
-    	System.out.print("la suma de los numero divisibles entre 4 es : " + suma);
-    	 
-
-
-     }
-
+    	 return suma;}
+    
     
     
     public static long calcularFactorial(int numero) {
@@ -159,7 +162,7 @@ public class Main {
     
     public static void factorial() {
 
-        int numero = leerEntero("Ingrese un número entero (no negativo): ");
+        int numero = solicitarCantidad();
 
         if (numero < 0) {
             System.out.println("No se puede calcular el factorial de un número negativo.");
@@ -177,12 +180,8 @@ public class Main {
           mostrarResultados(resultados);
       }
     	
-    public static int solicitarCantidad() {
-        return leerEntero("Ingrese el número: ");
-        	
-        }
     	
-        public static int[] contarNumeros(int n) {
+    public static int[] contarNumeros(int n) {
 
             int positivos = 0;
             int negativos = 0;
@@ -204,7 +203,7 @@ public class Main {
             return new int[]{positivos, negativos, ceros};
         }
 
-        public static void mostrarResultados(int[] resultados) {
+    public static void mostrarResultados(int[] resultados) {
             System.out.println("\nResultados:");
             System.out.println("Positivos: " + resultados[0]);
             System.out.println("Negativos: " + resultados[1]);
@@ -212,7 +211,7 @@ public class Main {
         }
 
         
-        public static void promediodePares() {
+    public static void promediodePares() {
         	int numeros = solicitarCantidad();
         	double promedio = calcularPromedioPares(numeros);
         	   if (promedio == -1) {
@@ -222,7 +221,7 @@ public class Main {
                }
         }
         
-        public static double calcularPromedioPares(int numeros) {
+    public static double calcularPromedioPares(int numeros) {
         	int suma = 0 ;
         	int cantidad = 0;
         			
@@ -241,12 +240,12 @@ public class Main {
         		        return (double) suma / cantidad;
         }
         
-       public static void sumadesusDigitos() {
+    public static void sumadesusDigitos() {
     	   int n = solicitarCantidad();
     	   int suma = calcularsumadedigitos(n);
            System.out.println("La suma de los dígitos es: " + suma);
        }
-       public static int calcularsumadedigitos(int n) {
+    public static int calcularsumadedigitos(int n) {
     	   n = Math.abs(n); // Por si el número es negativo
     	   int suma = 0;
     	   while (n>0) {
@@ -263,8 +262,80 @@ public class Main {
     	   
        }
         
+       //	Parte 2 – Condiciones y Divisibilidad. 
         
-        
+       public static void condicionesyDivisivilidad() {
+    	   	 int opcion = 0;
+
+    	     while (opcion != 4) {
+    	    	 System.out.println("\n=====Ciclos y Operaciones Numéricas. =====");
+    	         System.out.println("1. Multiplo de 7 o de 11");
+    	         System.out.println(" 2. ");
+    	         System.out.println(" 3. ");
+    	         System.out.println(" 4.Salir ");
+
+    	         System.out.print("Seleccione una opción: ");
+    	         
+    	         try {
+    	             opcion = sc.nextInt();
+
+    	             switch (opcion) {
+    	                 case 1:
+    	                	 multiplos();
+    	                     break;
+    	                 case 2:
+    	                	 
+    	                     break;
+    	                 case 3:
+    	              
+    	                     break;
+    	                 case 4:
+    	   
+    	                     break;
+    	                 case 5:
+    	      
+    	                	 break;
+    	                 case 6:
+    	                 System.out.println("Saliendo del programa...");
+    	                 break;
+    	                 default:
+    	                     System.out.println("Opción inválida.");
+    	             }
+    	         
+    	             } catch (Exception e) {
+    	                 System.out.println("Debe ingresar un número válido.");
+    	                 sc.nextLine(); 
+    	             }
+    	         }
+    	     }
+       
+       static public void multiplos() {
+    	   
+    	   int numero = solicitarCantidad();
+    	   String respuesta = evaluarMultiplos(numero);
+    	    System.out.println(respuesta);
+
+    	 }
+       public static String evaluarMultiplos(int numero) {
+    	    if (numero % 7 == 0 && numero % 11 == 0) {
+    	        return "El numero es multiplo de 7 y de 11";
+    	    } else if (numero % 7 == 0) {
+    	        return "El numero es multiplo de 7";
+    	    } else if (numero % 11 == 0) {
+    	        return "El numero es multiplo de 11";
+    	    } else {
+    	        return "El numero no es multiplo de 7 ni de 11";
+    	    }
+    	}
+    	   
+    	
+       
+       
+       
+       
+       
+       
+       
         
         
         
