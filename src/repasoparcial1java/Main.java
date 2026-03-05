@@ -556,11 +556,11 @@ public class Main {
     	     while (opcion != 6) {
     	    	 System.out.println("\n===== Analisis Numerico  =====");
     	         System.out.println("1. Que numero es mayor ");
-    	         System.out.println("2. ");
-    	         System.out.println("3. ");
-    	         System.out.println("1. ");
-    	         System.out.println("2. ");
-    	         System.out.println("3. ");
+    	         System.out.println("2. Tabla de division ");
+    	         System.out.println("3. Cantidad de pares en un digito");
+    	         System.out.println("4. ");
+    	         System.out.println("5. ");
+    	         System.out.println("6. ");
 
     	         System.out.print("Seleccione una opción: ");
     	         
@@ -572,8 +572,10 @@ public class Main {
     	                	 numerosMayorMenor();
     	                     break;
     	                 case 2:
+    	                	 tablaDivision();
     	                     break;
     	                 case 3:
+    	                	 cantidadPares();
     	                     break;
     	                 case 4:
     	                     break;
@@ -607,7 +609,7 @@ public class Main {
     		   return ("El numero mayor es "+numero1+" El numero menor es "+numero2);
     	   }else if(numero2>numero1 ){
    
-        		   return ("El numero mayor es "+numero2+" El numero menor es "+numero1+"La diferencia es de "+ (numero1+numero2));
+        		   return ("El numero mayor es "+numero2+" El numero menor es "+numero1);
     	   }else {
     		   return ("Los numero son Iguales");
     	   }
@@ -618,7 +620,56 @@ public class Main {
     	   return Math.abs(numero1-numero2);
        }
        
+       public static void  tabla(double numero) {
+    	    
+    	   
+       	System.out.println("Tabla del "+ numero +" :");
+       	for ( int i=1; i<=10 ; i++) {
+       		 System.out.println(numero + " / " + i + " = " + (numero / i));
+       			}
+    	   }
+       
+       public static void tablaDivision() {
+    	    double numero = leerEntero("Ingrese un número entero (distinto de 0): ");
 
+    	    while (numero == 0) {
+    	        System.out.println("Error: no se permite 0. Ingrese otro número.");
+    	        numero = leerEntero("Ingrese un número entero (distinto de 0): ");
+    	    }
+    	    tabla(numero);
+    	}
+       
+       public static void cantidadPares() {
+    	   int numero=leerEntero("Ingrese un numero entero");
+    	   numero = Math.abs(numero);
+    	   sonPares(numero);
+    	   
+    	   
+       }
+       
+       public static void sonPares(int numero) {
+    	 int contador = 0;
+    	   
+    	   if (numero == 0) {
+    		   contador= 1;
+           } else {
+               while (numero > 0) {
+                   int digito = (int)(numero % 10);
+                   if (digito % 2 == 0) {
+                	contador ++ ;
+                   }
+                   numero /= 10;
+               }
+           }
+    	   System.out.println("Cantidad de dígitos pares: " + contador);
+       }
+       
+       
        
 }
+
+
+
+
+
     	
