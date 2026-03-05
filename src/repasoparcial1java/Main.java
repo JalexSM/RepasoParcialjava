@@ -37,6 +37,7 @@ public class Main {
                      	;
                          break;
                      case 5:
+                    	 patronesyTransformaciones();
                      	;
                      case 6:
                     	 
@@ -725,7 +726,98 @@ public class Main {
            return suma / cantiN;
        }
         	   
-           
+       
+       //  Parte 5 – Patrones y Transformaciones
+       public static void patronesyTransformaciones () {
+    	   	 int opcion = 0;
+
+    	     while (opcion != 6) {
+    	    	 System.out.println("\n===== Analisis Numerico  =====");
+    	         System.out.println("1. Primeros multiplos de 6");
+    	         System.out.println("2. Potencia de Dos");
+    	         System.out.println("3. ");
+    	         System.out.println("4. ");
+    	         System.out.println("5. ");
+    	         System.out.println("6. SALIR");
+
+    	         System.out.print("Seleccione una opción: ");
+    	         
+    	         try {
+    	             opcion = sc.nextInt();
+
+    	             switch (opcion) {
+    	                 case 1:
+    	                	 primeroMultiplos();
+    	                     break;
+    	                 case 2:
+    	                	 potenciaDeDos();
+    	                     break;
+    	                 case 3:
+
+    	                     break;
+    	                 case 4:
+
+    	                     break;
+    	                 case 5:
+
+    	                     break;
+    	                 case 6:
+    	                     System.out.println("Saliendo del programa...");
+        	                 break;
+    	                 default:
+    	                     System.out.println("Opción inválida.");
+    	             }
+    	         
+    	             } catch (Exception e) {
+    	                 System.out.println("Debe ingresar un número válido.");
+    	                 sc.nextLine(); 
+    	             }
+    	         }
+    	     }
+       
+       
+       public static void primeroMultiplos() {
+    	   
+    	   int cantidad =  solicitarCantidad();
+    	   calcularMultiplos(cantidad);
+    	   
+    	   
+       }
+       
+       
+       public static void calcularMultiplos(int cantidad) {
+    	   
+    	   for( int  i =1; i  <= cantidad; i++) {
+    		   System.out.println(i+". "+(i*6));
+    		   
+    	   }
+       }
+      
+       
+       public static void potenciaDeDos() {
+    	    int numero = leerEntero("Ingrese un número: ");
+
+    	    if (esPotenciaDeDos(numero)) {
+    	        System.out.println("Es potencia de 2");
+    	    } else {
+    	        System.out.println("No es potencia de 2");
+    	    }
+    	}
+
+    	public static boolean esPotenciaDeDos(int numero) {
+
+    	    if (numero <= 0) {
+    	        return false;
+    	    }
+
+    	    while (numero % 2 == 0) {
+    	        numero = numero / 2;
+    	    }
+
+    	    return numero == 1;
+    	}
+       
+      
 
 
 }
