@@ -735,9 +735,9 @@ public class Main {
     	    	 System.out.println("\n===== Analisis Numerico  =====");
     	         System.out.println("1. Primeros multiplos de 6");
     	         System.out.println("2. Potencia de Dos");
-    	         System.out.println("3. ");
-    	         System.out.println("4. ");
-    	         System.out.println("5. ");
+    	         System.out.println("3. Invertir Numero");
+    	         System.out.println("4. La suma es Par o Impar");
+    	         System.out.println("5. Grados celsius a farenheit ");
     	         System.out.println("6. SALIR");
 
     	         System.out.print("Seleccione una opción: ");
@@ -753,13 +753,13 @@ public class Main {
     	                	 potenciaDeDos();
     	                     break;
     	                 case 3:
-
+    	                	 numeroInvertido();
     	                     break;
     	                 case 4:
-
+    	                	 sumaParImpar();
     	                     break;
     	                 case 5:
-
+    	                	 celsiusFarenheit();
     	                     break;
     	                 case 6:
     	                     System.out.println("Saliendo del programa...");
@@ -817,9 +817,63 @@ public class Main {
     	    return numero == 1;
     	}
        
+    	public static void numeroInvertido() {
+    		
+    		int numero = leerEntero("ingrese el numero que quiere invertir");
+    		invertirNumero(numero);
+    		
+    	}
+    	
+    	public static void invertirNumero(int numero) {
+    		
+    		int numeroinvertido = 0 ;
+    		
+    		while (numero!= 0 ) {
+    			
+    			numeroinvertido = numeroinvertido*10+numero%10;
+    			numero/=10;
+    			
+    		}
+    		System.out.println("el numero invertido es "+ numeroinvertido);
+    		
+    	}
+    	
       
+    	
+    	public static void sumaParImpar() {
+    		int numero = leerEntero("ingrese el numero a sumar ");
+    		calcularParImpar(numero);
+    		
+    	}
+    	
+    	public static void calcularParImpar(int numero ) {
+    		 int suma = 0;
+    		   for( int  i =1; i  <= numero; i++) {
+    			   
+    			    suma += i ; 
+        		   
+    		   } 
+    
+    		   if( (suma % 2) == 0 ) {
+    			   
+    			   System.out.println("La suma del numero es Par");  
+    		   }else {
+    			    System.out.println("La suma del numero es impar");
+    		   }
+    	}
 
-
+    	public static void celsiusFarenheit() {
+    		double grados = leerDouble("Ingrese los grado Celsius ");
+    		conversionCelsiusFarenheit(grados);
+    	}
+    	
+    	public static void conversionCelsiusFarenheit(double grados) {
+    	   
+    	  double farenheit =   (grados *( 9 / 5)) + 32;
+    	  System.out.println(grados+" grados Celsius son "+farenheit+" grados farenheit ");
+    	    
+    	}
+    	
 }
 
 
