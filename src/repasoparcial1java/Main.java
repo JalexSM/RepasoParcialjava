@@ -71,6 +71,23 @@ public class Main {
     }
     
     
+    public static double leerDouble(String mensaje) {
+
+        double numero = 0;
+
+        while (true) {
+            try {
+                System.out.print(mensaje);
+                numero = sc.nextDouble();
+                break;
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Debe ingresar un número entero.");
+                sc.nextLine(); 
+            }
+        }
+
+        return numero;
+    }
     
             //	Parte 1 ciclos y Operaciones 
  
@@ -380,6 +397,159 @@ public class Main {
         
         
     }
-    		
+    	
+       //  Parte 3 – Uso de switch
+       public static void usoDeSwitch() {
+  	   	 int opcion = 0;
+
+  	     while (opcion != 3) {
+  	    	 System.out.println("\n===== Uso de switch =====");
+  	         System.out.println("1. Numero a numero romano");
+  	         System.out.println(" 2. Calculadora");
+  	         System.out.println(" 3.Salir ");
+
+  	         System.out.print("Seleccione una opción: ");
+  	         
+  	         try {
+  	             opcion = sc.nextInt();
+
+  	             switch (opcion) {
+  	                 case 1:
+  	                	calculadoraBasica();
+  	                     break;
+  	                 case 2:
+  	                	 numerosARomanos();
+  	                     break;
+  	                 case 3:
+  	                     System.out.println("Saliendo del programa...");
+      	                 break;
+  	                 default:
+  	                     System.out.println("Opción inválida.");
+  	             }
+  	         
+  	             } catch (Exception e) {
+  	                 System.out.println("Debe ingresar un número válido.");
+  	                 sc.nextLine(); 
+  	             }
+  	         }
+  	     }
+       
+       
+       public static void numerosARomanos() {
+       
+       int opcion = 0;
+
+       while (opcion != 6) {
+
+           System.out.println("\n===== Numero a numero romano =====");
+           System.out.println("1. 1 a Romano");
+           System.out.println("2. 2 a Romano");
+           System.out.println("3. 3 a Romano");
+           System.out.println("4. 4 a Romano");
+           System.out.println("5. 5 a Romano");
+           System.out.println("6. Salir");
+
+           System.out.print("Seleccione una opción: ");
+
+           try {
+               opcion = Integer.parseInt(sc.nextLine());
+
+               switch (opcion) {
+                   case 1:
+                       System.out.println("1 es I en Romano");
+                       break;
+                   case 2:
+                       System.out.println("2 es II en Romano");
+                       break;
+                   case 3:
+                       System.out.println("3 es III en Romano");
+                       break;
+                   case 4:
+                       System.out.println("4 es IV en Romano");
+                       break;
+                   case 5:
+                       System.out.println("5 es V en Romano");
+                       break;
+                   case 6:
+                       System.out.println("Saliendo del programa...");
+                       break;
+                   default:
+                       System.out.println("Opción inválida.");
+               }
+
+           } catch (NumberFormatException e) {
+               System.out.println("Debe ingresar un número válido.");
+           }
+         }
+       }  
+       
+
+       
+       public static void calculadoraBasica() {
+    	   
+           double numero1 = leerDouble("Ingrese el primer número: ");
+           double numero2 = leerDouble("Ingrese el segundo número: ");
+           int operacion = 0;
+           
+           
+           System.out.println("\nSeleccione operación:");
+           System.out.println("1. Suma");
+           System.out.println("2. Resta");
+           System.out.println("3. Multiplicación");
+           System.out.println("4. División");
+           System.out.print("Opción: ");
+
+         
+
+           try {
+               operacion = sc.nextInt();
+           } catch (Exception e) {
+               System.out.println("Operación inválida.");
+               sc.nextLine();
+               return;
+           }
+
+           switch (operacion) {
+               case 1:
+                   System.out.println("Resultado: " + suma(numero1, numero2));
+                   break;
+               case 2:
+                   System.out.println("Resultado: " + resta(numero1, numero2));
+                   break;
+               case 3:
+                   System.out.println("Resultado: " + multiplicacion(numero1, numero2));
+                   break;
+               case 4:
+                   if (numero2 == 0) {
+                       System.out.println("No se puede dividir entre cero.");
+                   } else {
+                       System.out.println("Resultado: " + division(numero1, numero2));
+                   }
+                   break;
+               default:
+                   System.out.println("Operación no válida.");
+           }
+       }
+       
+       public static double suma(double a, double b) {
+           return a + b;
+       }
+
+       public static double resta(double a, double b) {
+           return a - b;
+       }
+
+       public static double multiplicacion(double a, double b) {
+           return a * b;
+       }
+
+       public static double division(double a, double b) {
+           return a / b;
+       }
+
+       
+       
+       
+       
 }
     	
