@@ -33,6 +33,7 @@ public class Main {
                     	 ;
                          break;
                      case 4:
+                    	 analisisNumerico();
                      	;
                          break;
                      case 5:
@@ -548,9 +549,76 @@ public class Main {
            return a / b;
        }
 
+       //   Parte 4 – Análisis Numérico
+       public static void analisisNumerico() {
+    	   	 int opcion = 0;
+
+    	     while (opcion != 6) {
+    	    	 System.out.println("\n===== Analisis Numerico  =====");
+    	         System.out.println("1. Que numero es mayor ");
+    	         System.out.println("2. ");
+    	         System.out.println("3. ");
+    	         System.out.println("1. ");
+    	         System.out.println("2. ");
+    	         System.out.println("3. ");
+
+    	         System.out.print("Seleccione una opción: ");
+    	         
+    	         try {
+    	             opcion = sc.nextInt();
+
+    	             switch (opcion) {
+    	                 case 1:
+    	                	 numerosMayorMenor();
+    	                     break;
+    	                 case 2:
+    	                     break;
+    	                 case 3:
+    	                     break;
+    	                 case 4:
+    	                     break;
+    	                 case 5:
+    	                     break;
+    	                 case 6:
+    	                     System.out.println("Saliendo del programa...");
+        	                 break;
+    	                 default:
+    	                     System.out.println("Opción inválida.");
+    	             }
+    	         
+    	             } catch (Exception e) {
+    	                 System.out.println("Debe ingresar un número válido.");
+    	                 sc.nextLine(); 
+    	             }
+    	         }
+    	     }
        
+       public static void numerosMayorMenor() {
+    	   double numero1 = leerDouble("ingrese el primer numero:");
+    	   double numero2 = leerDouble("ingrese el segundo numero: ");
+    	   String respuesta =  evaluaSiEsMayor(numero1,numero2);
+    	   double diferencia = diferenciaAbsoluta(numero1,numero2);
+    	   System.out.println(respuesta);
+    	   System.out.println("la diferencia absoluta es de "+ diferencia);
+       }
        
+       public static String evaluaSiEsMayor(double numero1, double numero2) {
+    	   if (numero1>numero2) {
+    		   return ("El numero mayor es "+numero1+" El numero menor es "+numero2);
+    	   }else if(numero2>numero1 ){
+   
+        		   return ("El numero mayor es "+numero2+" El numero menor es "+numero1+"La diferencia es de "+ (numero1+numero2));
+    	   }else {
+    		   return ("Los numero son Iguales");
+    	   }
+    	   
+       }
        
+       public static double diferenciaAbsoluta(double numero1, double numero2) {
+    	   return Math.abs(numero1-numero2);
+       }
+       
+
        
 }
     	
