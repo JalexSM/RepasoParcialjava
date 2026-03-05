@@ -29,6 +29,7 @@ public class Main {
                     	 condicionesyDivisivilidad();
                          break;
                      case 3:
+                    	 usoDeSwitch();
                     	 ;
                          break;
                      case 4:
@@ -415,10 +416,10 @@ public class Main {
 
   	             switch (opcion) {
   	                 case 1:
-  	                	calculadoraBasica();
+  	                	numerosARomanos();
   	                     break;
   	                 case 2:
-  	                	 numerosARomanos();
+  	                	 calculadoraBasica();
   	                     break;
   	                 case 3:
   	                     System.out.println("Saliendo del programa...");
