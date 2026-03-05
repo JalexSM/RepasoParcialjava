@@ -558,9 +558,9 @@ public class Main {
     	         System.out.println("1. Que numero es mayor ");
     	         System.out.println("2. Tabla de division ");
     	         System.out.println("3. Cantidad de pares en un digito");
-    	         System.out.println("4. ");
-    	         System.out.println("5. ");
-    	         System.out.println("6. ");
+    	         System.out.println("4. El numero es triangular");
+    	         System.out.println("5. Promedio de numeros negativos");
+    	         System.out.println("6. SALIR");
 
     	         System.out.print("Seleccione una opción: ");
     	         
@@ -578,8 +578,10 @@ public class Main {
     	                	 cantidadPares();
     	                     break;
     	                 case 4:
+    	                	 numeroTriangular();
     	                     break;
     	                 case 5:
+    	                	 promedioNegativos();
     	                     break;
     	                 case 6:
     	                     System.out.println("Saliendo del programa...");
@@ -665,11 +667,68 @@ public class Main {
        }
        
        
+       public static void numeroTriangular() {
+    	   int numero = leerEntero("Ingrese un numero entero ");
+    	   boolean triangular = esTriangular(numero);
+    	   mostrarResultado(numero ,triangular);
+       }
        
+       public static boolean esTriangular(int numero) {
+           int suma = 0;
+           int k = 1;
+
+           while (suma < numero) {
+               suma += k;
+               if (suma == numero) {
+                   return true;
+               }
+               k++;
+           }
+
+           return false;
+  
+       }
+       public static void mostrarResultado(int numero, boolean triangular) {
+    	   if (triangular) {
+               System.out.println(numero + " es un número triangular.");
+           } else {
+               System.out.println(numero + " no es un número triangular.");
+           }
+       }
+       
+       
+       public static void promedioNegativos() {
+    	   int cantidad = leerEntero("ingrese la cantidad de numero a ingresar: ");
+    		int respuesta = calcularPromedio(cantidad);
+    		if ( respuesta == 0 ) {
+		   System.out.println("No hay numero negativos");
+    	   }else {
+        	   System.out.println("el promedio de los negativos es "+ respuesta);
+    		   
+    	   }
+       }
+       
+       public static int calcularPromedio(int cantidad) {
+    	   int suma = 0;
+    	   int cantiN = 0; 
+    	  System.out.println("ingrese los numero ");
+           for (int i = 1; i <= cantidad; i++) {
+        	   int numero = leerEntero("");
+               if ( numero <= 0) {
+            	   suma+=numero;
+            	   cantiN++;
+               }
+           }
+           if (cantiN == 0) {
+               return 0;
+           }
+           return suma / cantiN;
+       }
+        	   
+           
+
+
 }
-
-
-
 
 
     	
